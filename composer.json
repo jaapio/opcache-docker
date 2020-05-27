@@ -1,0 +1,27 @@
+{
+    "name": "jaapio/opcache-benchmark",
+    "description": "Some benchmark project to see the effects of opcache",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^7.4",
+        "symfony/console": "^5.0",
+        "symfony/flex": "^1.7",
+        "symfony/framework-bundle": "^5.0",
+        "symfony/yaml": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\" : "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        }
+    }
+}

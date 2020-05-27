@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+    php:
+        build:
+          context: .
+          dockerfile: Dockerfile
+        environment:
+          APP_ENV: prod
+
+    web:
+        build:
+          context: docker/nginx
+        links:
+          - php
+
+    bench:
+        image: jstarcher/siege
+        command: ["-d1", "-c25", "-t1M", "--log=/logs/siege.log", "http://web"]
+        links:
+          - web
+        volumes:
+          - ./logs:/logs
