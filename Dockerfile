@@ -8,6 +8,7 @@ RUN composer install -o --no-dev -n
 FROM php:7.4-fpm
 
 RUN docker-php-ext-install opcache
+RUN useradd php
 
 ENV APP_ENV=prod
 
