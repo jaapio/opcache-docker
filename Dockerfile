@@ -15,3 +15,4 @@ WORKDIR /app
 COPY --from=build /data /app
 
 RUN ./bin/console cache:warmup
+ADD ./docker/php/opcache.ini /usr/local/etc/php/conf.d/99-opcache.ini
